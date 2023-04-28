@@ -1,14 +1,13 @@
 {
-  "name": "28-Stu_Mini-Project",
+  "name": "24-Stu_Subdoc-Population",
   "version": "1.0.1",
-  "description": "Mongoose back-end project - Develop",
+  "description": "Student activity for populating subdocs",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "seed": "node utils/seed",
-    "heroku-postbuild": "node utils/seed.js"
+    "seed": "node utils/seed.js"
   },
   "dependencies": {
     "express": "^4.17.1",

@@ -1,50 +1,50 @@
-const lorum = [
-  'lorem',
-  'imsum',
-  'dolor',
-  'sit',
-  'amet',
-  'consectetur',
-  'adipiscing',
-  'elit',
-  'curabitur',
-  'vel',
-  'hendrerit',
-  'libero',
-  'eleifend',
-  'blandit',
-  'nunc',
-  'ornare',
-  'odio',
-  'ut',
-  'orci',
-  'gravida',
-  'imperdiet',
-  'nullam',
-  'purus',
-  'lacinia',
-  'a',
-  'pretium',
-  'quis',
+const names = [
+  
 ];
 
-const genRandomIndex = (arr) => Math.floor(Math.random() * arr.length);
+const thoughts = [
 
-const getRandomWord = () => `${lorum[genRandomIndex(lorum)]}`;
+];
 
-const getRandomPost = (words) => {
-  let post = '';
-  for (let i = 0; i < words; i++) {
-    post += ` ${getRandomWord()}`;
+const reactions = [
+
+];
+
+const users = [];
+
+// Get a random item from a given array
+const getArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+// Gets a random user
+const getName = () =>
+  `${getArrItem(names)} ${getArrItem(names)}`;
+
+// Function to generate thoughts that can be added to the database.
+const getThought = (int) => {
+  let results = [];
+  for (let i = 0; i < int; i++) {
+      results.push({
+          thoughtText: getArrItem(thoughts),
+          reactions: [...getReaction(2)],
+      });
   }
-  return post;
+  return results;
 };
-const getRandomColor = () =>
-  `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
-module.exports = {
-  getRandomWord,
-  getRandomColor,
-  getRandomPost,
-  genRandomIndex,
+// Create responses
+const getReaction = (int) => {
+  if (int === 1) {
+    return getArrItem(reactions);
+  }
+  let results = [];
+  for (let i = 0; i < int; i++) {
+    results.push({
+      reactions: getArrItem(reactions),
+      username: getName(),
+    });
+  }
+  return results;
 };
+
+// Export the functions for use in seed.js
+module.exports = { getName, getThought, getReaction };

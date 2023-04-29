@@ -1,12 +1,14 @@
 const { Thoughts, Post } = require('../models');
 
 module.exports = {
+  // gets ALL thoughts
   getThoughts(req, res) {
     Thoughts.find({})
       .select('-__v')
       .then((Thoughts) => res.json(Thoughts))
       .catch((err) => res.status(500).json(err));
   },
+  // get single thoguht by ID
   getSingleThought(req, res) {
     Thoughts.findOne({ _id: req.params.thoughtId })
       .select('-__v')
@@ -21,8 +23,8 @@ module.exports = {
   createThought(req, res) {
     Thoughts.create(req.body)
       .then((thought) => {
-        return Post.findOneAndUpdate(
-          { _id: req.body.postId },
+        return thought.findOneAndUpdate(
+          { _id: req.body.thoughtId },
           { $addToSet: { thoughts: thought._id } },
           { new: true }
         );
@@ -39,4 +41,16 @@ module.exports = {
         res.status(500).json(err);
       });
   },
+  // delete thought
+  deleteThought(req, res) {
+    Thoughts.findByIdAndDelete({ _id: req.params.thoughtId })
+      .then(() => res.json('Thought deleted'))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+  })}
+    // add reaction
+
+    // delete reaction
+
 };

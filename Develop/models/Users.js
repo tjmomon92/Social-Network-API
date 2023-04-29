@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const validateEmail = function(email) {
-  var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return re.test(email)
 };
 
@@ -23,13 +23,13 @@ const userSchema = new Schema(
     thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: Thoughts,
+        ref: 'Thoughts',
       },
     ],
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: User,
+        ref: 'Users',
       },
     ],
   },
@@ -37,6 +37,7 @@ const userSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
+    id:false,
   }
 );
 
@@ -48,6 +49,6 @@ userSchema
     return this.friends.length;
   });
 
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

@@ -7,12 +7,13 @@ const {
   addFriend,
   deleteFriend,
   deleteUser,
-} = require('../../controllers/tagController');
+} = require('../../controllers/userController');
 
-// /api/tags
-router.route('/').get(getTags).post(createTag);
+// api pathing for all variables
+router.route('/').get(getUsers).post(createUser);
 
-// /api/tags/:tagId
-router.route('/:tagId').get(getSingleTag);
+router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
+
+router.route('/:userId/friends/:friendId').post(addFriend).delete(deleteFriend);
 
 module.exports = router;

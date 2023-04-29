@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const {
-  getTags,
-  getSingleTag,
-  createTag,
+  getUsers,
+  getSingleUser,
+  createUser,
+  updateUser,
+  addFriend,
+  deleteFriend,
+  deleteUser,
 } = require('../../controllers/tagController');
 
 // /api/tags

@@ -19,8 +19,8 @@ connection.once('open', async () => {
       users.push({
           first,
           last,
-          email: `${first}_${last}@domain.com`,
-          username: `${first}.${last}`,
+          userEmail: `${first}_${last}@domain.com`,
+          userName: `${first}.${last}`,
       }
       );
   }

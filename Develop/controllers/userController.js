@@ -4,7 +4,7 @@ module.exports = {
   // get all users
   getUsers(req, res) {
     User.find()
-      .then((users) => res.json(users))
+      .then((response) => res.json(response))
       .catch((err) => {
         console.error({ message: err });
         return res.status(500).json(err);
@@ -23,7 +23,7 @@ module.exports = {
   // create a new user
   createUser(req, res) {
     User.create(req.body)
-      .then((post) => res.json(User))
+      .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
   // update user
@@ -42,7 +42,7 @@ module.exports = {
         console.log(err);
         res.status(500).json(err);
       });
-    },
+  },
   // add friend
   addFriend(req, res) {
     User.findOneAndUpdate(

@@ -15,7 +15,7 @@ const userSchema = new Schema(
     },
     userEmail: {
       type: String,
-      unique: true,
+      // unique: true,
       required: true,
       validate: [validateEmail, 'Please use a valid email address'],
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
@@ -23,13 +23,13 @@ const userSchema = new Schema(
     thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Thoughts',
+        ref: 'Thought',
       },
     ],
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Users',
+        ref: 'User',
       },
     ],
   },

@@ -21,7 +21,7 @@ Users will need to run the 'npm i' command to install all dependencies required 
 This is CRUD application API used to store all information related to users, as well as the corresponding information related to them such as thoughts or friends.
   
 ## Testing
-This product can be tested using Insomnia. For more details, check out this video!
+This product can be tested using Insomnia. For more details, check out [this](https://drive.google.com/file/d/12WLOMRxAG9Y0NMJbYYyUUJwf1MW4E-8B/view) video! Check out the code repository [here](https://github.com/tjmomon92/Social-Network-API)
   
 ## Licensing
 Licensed under [Apache](https://www.apache.org/licenses/LICENSE-2.0)

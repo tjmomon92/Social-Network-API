@@ -59,7 +59,7 @@ const reactions = [
 const users = [];
 
 // Get a random item from a given array
-const getArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const getArrItem = (arr) => arr[Math.floor(Math.random() * arr.length-1)];
 
 // Gets a random user
 const getName = () =>

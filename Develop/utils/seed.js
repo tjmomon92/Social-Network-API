@@ -25,6 +25,8 @@ connection.once('open', async () => {
       );
   }
 
+  console.log(users);
+
 await User.collection.insertMany(users);
 await Thought.collection.insertMany(thoughts);
 
